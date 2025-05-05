@@ -66,7 +66,7 @@ class _UserListScreenState extends State<UserListScreen> {
           email: '${_name.toLowerCase().replaceAll(' ', '.')}@reqres.in',
           firstName: _name.split(' ').first,
           lastName: _name.split(' ').length > 1 ? _name.split(' ').last : '',
-          avatar: 'assests/avatars${_nextUserId % 6 + 1}-blank_profile.jpg',
+          avatar: 'https://reqres.in/img/faces${_nextUserId % 6 + 1}-image.jpg',
         );
 
         setState(() {
@@ -279,10 +279,10 @@ class _UserListScreenState extends State<UserListScreen> {
             CustomButton(
               label: title,
               onPressed: onSubmit,
-              enabled: _name.isNotEmpty &&
-                  _email.isNotEmpty &&
-                  _job.isNotEmpty &&
-                  _name.split(' ').length >= 2,
+              // enabled: _name.isNotEmpty &&
+              //     _email.isNotEmpty &&
+              //     _job.isNotEmpty &&
+              //     _name.split(' ').length >= 2,
             ),
           ],
         ),
@@ -333,8 +333,7 @@ class _UserListScreenState extends State<UserListScreen> {
                       ),
                       child: ListTile(
                         leading: CircleAvatar(
-                          backgroundImage: AssetImage
-                          (user.avatar),
+                          backgroundImage: AssetImage(user.avatar),
                         ),
                         title: Text('${user.firstName} ${user.lastName}'),
                         subtitle: Text(user.email),
